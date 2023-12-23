@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Image with Filters</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="filter">
+            <div class="inputBox">
+                <span>Grayscale</span>
+                <input type="range" min="0" max="100" value="0" id="grayscale">
+            </div>
+
+            <div class="inputBox">
+                <span>Sepia</span>
+                <input type="range" min="0" max="100" value="0" id="sepia">
+            </div>
+
+            <div class="inputBox">
+                <span>Blur</span>
+                <input type="range" min="0" max="100" value="0" id="blur">
+            </div>
+
+            <div class="inputBox">
+                <span>Invert</span>
+                <input type="range" min="0" max="100" value="0" id="invert">
+            </div>
+
+            <div class="inputBox">
+                <span>Opacity</span>
+                <input type="range" min="0" max="100" value="100" id="opacity">
+            </div>
+
+            <div class="inputBox">
+                <span>Brightness</span>
+                <input type="range" min="0" max="1000" value="100" id="brightness">
+            </div>
+
+            <div class="inputBox">
+                <span>Contrast</span>
+                <input type="range" min="0" max="1000" value="100" id="contrast">
+            </div>
+
+            <div class="inputBox">
+                <span>Saturate</span>
+                <input type="range" min="0" max="1000" value="100" id="saturate">
+            </div>
+        </div>
+        <div class="result">
+            <img src="image.jpg" alt="" id="image">
+            <div class="output">
+                
+            </div>
+        </div>
+        <div class="git">
+            Hello World
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.inputBox input').on('input',function(){
+                let grayscale = $('#grayscale').val();
+                let sepia = $('#sepia').val();
+                let blur = $('#blur').val();
+                let invert = $('#invert').val();
+                let opacity = $('#opacity').val();
+                let brightness = $('#brightness').val();
+                let contrast = $('#contrast').val();
+                let saturate = $('#saturate').val();
+                
+                
+                $('#image').css('filter','grayscale('+ grayscale +'%) sepia('+ sepia +'%) blur('+ blur +'px) invert('+ invert +'%) opacity('+ opacity +'%) brightness('+ brightness +'%) contrast('+ contrast +'%) saturate('+ saturate +'%)');
+                let filterSetting = $('#image').css('filter');
+                $('.output').text('Filter '+ filterSetting+';');
+            })
+        })
+    </script>
+</body>
+</html>
